@@ -117,7 +117,7 @@
 				var mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
 
-				var helperGeometry = new THREE.BoxBufferGeometry( 300, 300, 300, 4, 4, 4 );
+				var helperGeometry = new THREE.BoxBufferGeometry( 100, 100, 100, 20, 20, 20 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xDD2476, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				scene.add( helper );
