@@ -23,6 +23,62 @@
 			a {
 				color: #ff8800;
 			}
+			.pokebtn {
+				position: fixed;
+				bottom: 25px;
+				left: 5%;
+				background: #ffffff;
+				border: none;
+				border-radius: 6px;
+				padding: 10px;
+				width: 90%;
+				font-size: 25px;
+				color: #0D1D3A;
+				font-weight: lighter;
+				font-family: sans-serif;
+			}
+			#intro {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: #FF512F;  /* fallback for old browsers */
+				background: -webkit-linear-gradient(to bottom, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+				background: linear-gradient(to bottom, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+				text-align: center;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+			}
+			.ack {
+				font-family: monospace;
+				font-weight: lighter;
+				color: #fff;
+				font-size: 30px;
+			}
+			.title {
+				font-family: monospace;
+				font-weight: lighter;
+				color: #fff;
+				font-size: 45px;
+				text-shadow: 0px 0px 5px #fff;
+			}
+			.alert {
+				padding: 10px 10px;
+				position: fixed;
+				top: 20px;
+				width: 90%;
+				left: 5%;
+				border-radius: 6px;
+				background: #fff;
+				box-shadow: 0px 0px 10px #f1f1f1;
+				text-align: center;
+			}
+			.dark {
+				font-family: monospace;
+				font-weight: lighter;
+				color: #000000;
+				font-size: 30px;
+			}
 		</style>
 	</head>
 	<body>
@@ -48,6 +104,7 @@
 				controls = new THREE.DeviceOrientationControls( camera );
 
 				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xffffff );
 
 				var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
 				// invert the geometry on the x-axis so that all of the faces point inward
@@ -61,7 +118,7 @@
 				scene.add( mesh );
 
 				var helperGeometry = new THREE.BoxBufferGeometry( 100, 100, 100, 4, 4, 4 );
-				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xff00ff, wireframe: true } );
+				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xDD2476, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				scene.add( helper );
 
@@ -96,8 +153,24 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 			}
-
 		</script>
-	
-
-</body></html>
+		<div class="alert" style="display: block">
+			<span class="dark">AUGGER is on maintenance</span>
+		</div>
+		<div id="intro">
+			<br>
+			<span class="title">AUGGER</span>
+			<br>
+			<span class="ack">Talk to a Remade Version of People You Know</span>
+			<button class="pokebtn" onclick="strt()">START</button>
+			<script>
+				function strt() {
+					document.getElementById("intro").style.opacity = "0";
+					setTimeout( function () {
+						document.getElementById("intro").style.display = "none";
+					}, 500);
+				}
+			</script>
+		</div>
+	</body>
+</html>
