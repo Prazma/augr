@@ -139,6 +139,7 @@
 			function animate() {
 
 				window.requestAnimationFrame( animate );
+				camera.position.y = -47;
 
 				controls.update();
 				renderer.render( scene, camera );
