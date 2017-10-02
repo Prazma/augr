@@ -109,10 +109,12 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>b.0.1</span></div>
+		<div id="version"><strong>version: </strong><span>b.0.2</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
+		
+		<span style="display: none" id="mode">0</span>
 
 		<script>
 			var container, camera, scene, renderer, controls;
@@ -144,13 +146,17 @@
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
-			function setScape() {
-				var landscape = new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( 'textures/2294472375_24a3b8ef46_o.jpg' ) } );
-				mesh.materials = landscape;
-			}
 			function animate() {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -195;
+				var mode = document.getElementById("mode").innerHTML;
+				if( mode == "1") {
+					var landscape = new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( '8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' ) } );
+					mesh.materials = landscape;
+				} else {
+					var landscape = new THREE.MeshBasicMaterial( { color: 0x000000 } );
+					mesh.materials = landscape;
+				}
 				controls.update();
 				renderer.render( scene, camera );
 			}
@@ -158,6 +164,11 @@
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
 				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
+			function setScape() {
+				var landscape = new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( '8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' ) } );
+				mesh.materials = landscape;
+				document.getElementById("mode").innerHTML = "1";
 			}
 		</script>
 		<div class="alert" style="display: none">
