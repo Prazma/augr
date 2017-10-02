@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.0.8</span></div>
+		<div id="version"><strong>version: </strong><span>β.0.9</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -146,7 +146,7 @@
 				}
 				var mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
-				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 50, 50, 50 );
+				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 30, 30, 30 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				scene.add( helper );
@@ -160,7 +160,7 @@
 			}
 			function animate() {
 				window.requestAnimationFrame( animate );
-				camera.position.y = -150;
+				camera.position.y = -130;
 				controls.update();
 				renderer.render( scene, camera );
 			}
