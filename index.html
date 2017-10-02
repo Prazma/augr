@@ -109,7 +109,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>b.0.2</span></div>
+		<div id="version"><strong>version: </strong><span>b.0.3</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -132,6 +132,16 @@
 				var material = new THREE.MeshBasicMaterial( {
 					color: 0x000000
 				} );
+				var mode = document.getElementById("mode").innerHTML;
+				if( mode == "1") {
+					var material = new THREE.MeshBasicMaterial( {
+						map: new THREE.TextureLoader().load( '8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' )
+					} );
+				} else {
+					var material = new THREE.MeshBasicMaterial( {
+						color: 0x000000
+					} );
+				}
 				var mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 100, 100, 100 );
@@ -149,14 +159,6 @@
 			function animate() {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -195;
-				var mode = document.getElementById("mode").innerHTML;
-				if( mode == "1") {
-					var landscape = new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( '8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' ) } );
-					mesh.materials = landscape;
-				} else {
-					var landscape = new THREE.MeshBasicMaterial( { color: 0x000000 } );
-					mesh.materials = landscape;
-				}
 				controls.update();
 				renderer.render( scene, camera );
 			}
@@ -166,8 +168,6 @@
 				renderer.setSize( window.innerWidth, window.innerHeight );
 			}
 			function setScape() {
-				var landscape = new THREE.MeshBasicMaterial( { map: new THREE.TextureLoader().load( '8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' ) } );
-				mesh.materials = landscape;
 				document.getElementById("mode").innerHTML = "1";
 			}
 		</script>
