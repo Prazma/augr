@@ -134,10 +134,15 @@
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
 			function animate() {
-				window.requestAnimationFrame( animate );
-				camera.position.y = -195;
-				controls.update();
-				renderer.render( scene, camera );
+				var stat = document.getElementById("statscape").innerHTML;
+				if( stat == "0") {
+					window.requestAnimationFrame( animate );
+					camera.position.y = -195;
+					controls.update();
+					renderer.render( scene, camera );
+				} else {
+					reanimate();
+				}
 			}
 			animate();
 			function onWindowResize() {
@@ -166,6 +171,9 @@
 				</div>
 			</div>
 		</div>
+		<div style="display: none;">
+			<span id="statscape">0</span>
+		</div>
 		<div id="intro">
 			<br>
 			<span class="title">AUGGER</span>
@@ -182,6 +190,7 @@
 				}
 				function setScape(type) {
 					if( type == 'town' ) {
+						document.getElementById("statscape").innerHTML = "1";
 						container = document.getElementById( 'container' );
 						camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 8000 );
 						controls = new THREE.DeviceOrientationControls( camera );
@@ -202,6 +211,14 @@
 						container.appendChild( renderer.domElement );
 						//
 						window.addEventListener( 'resize', onWindowResize, false );
+					}
+					
+					function reanimate() {
+						window.requestAnimationFrame( animate );
+						camera.position.y = -195;
+						controls.update();
+						renderer.render( scene, camera );
+						reanimate();
 					}
 				}
 			</script>
