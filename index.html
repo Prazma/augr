@@ -5,6 +5,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
 		<link rel="apple-touch-icon" href="3D27917E-A0A6-4B3D-9D11-6C6879B5CA3A.jpg">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<meta name="apple-mobile-web-app-title" content="Augger">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="white">
@@ -83,6 +86,15 @@
 				color: #000000;
 				font-size: 30px;
 			}
+			.arbtn {
+				background: #ff9933;
+				border: none;
+				border-radius: 6px;
+				padding: 7px 7px;
+				position: fixed;
+				right: 20px;
+				bottom: 20px;
+			}
 		</style>
 	</head>
 	<body>
@@ -93,74 +105,66 @@
 		<script src="js/DeviceOrientationControls.js"></script>
 
 		<script>
-
 			var container, camera, scene, renderer, controls;
-
 			init();
-			animate();
-
 			function init() {
-
 				container = document.getElementById( 'container' );
-
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 8000 );
-
 				controls = new THREE.DeviceOrientationControls( camera );
-
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
-
 				var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
 				// invert the geometry on the x-axis so that all of the faces point inward
 				geometry.scale( - 1, 1, 1 );
-
 				var material = new THREE.MeshBasicMaterial( {
 					color: 0x000000
 				} );
-
 				var mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
-
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 100, 100, 100 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				scene.add( helper );
-
 				//
-
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
-
 				//
-
 				window.addEventListener( 'resize', onWindowResize, false );
-
-
 			}
-
 			function animate() {
-
 				window.requestAnimationFrame( animate );
 				camera.position.y = -195;
-
 				controls.update();
 				renderer.render( scene, camera );
-
 			}
-
+			animate();
 			function onWindowResize() {
-
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
-
 				renderer.setSize( window.innerWidth, window.innerHeight );
-
 			}
 		</script>
-		<div class="alert" style="display: block">
+		<div class="alert" style="display: none">
 			<span class="dark">AUGGER is on maintenance</span>
+		</div>
+		<button class="arbtn" data-toggle="modal" data-target="#scapemenu"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU4IDU4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1OCA1ODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiPgo8Zz4KCTxwYXRoIGQ9Ik01Nyw2SDFDMC40NDgsNiwwLDYuNDQ3LDAsN3Y0NGMwLDAuNTUzLDAuNDQ4LDEsMSwxaDU2YzAuNTUyLDAsMS0wLjQ0NywxLTFWN0M1OCw2LjQ0Nyw1Ny41NTIsNiw1Nyw2eiBNNTYsNTBIMlY4aDU0VjUweiIgZmlsbD0iI0ZGRkZGRiIvPgoJPHBhdGggZD0iTTE2LDI4LjEzOGMzLjA3MSwwLDUuNTY5LTIuNDk4LDUuNTY5LTUuNTY4QzIxLjU2OSwxOS40OTgsMTkuMDcxLDE3LDE2LDE3cy01LjU2OSwyLjQ5OC01LjU2OSw1LjU2OSAgIEMxMC40MzEsMjUuNjQsMTIuOTI5LDI4LjEzOCwxNiwyOC4xMzh6IE0xNiwxOWMxLjk2OCwwLDMuNTY5LDEuNjAyLDMuNTY5LDMuNTY5UzE3Ljk2OCwyNi4xMzgsMTYsMjYuMTM4cy0zLjU2OS0xLjYwMS0zLjU2OS0zLjU2OCAgIFMxNC4wMzIsMTksMTYsMTl6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNNyw0NmMwLjIzNCwwLDAuNDctMC4wODIsMC42Ni0wLjI0OWwxNi4zMTMtMTQuMzYybDEwLjMwMiwxMC4zMDFjMC4zOTEsMC4zOTEsMS4wMjMsMC4zOTEsMS40MTQsMHMwLjM5MS0xLjAyMywwLTEuNDE0ICAgbC00LjgwNy00LjgwN2w5LjE4MS0xMC4wNTRsMTEuMjYxLDEwLjMyM2MwLjQwNywwLjM3MywxLjA0LDAuMzQ1LDEuNDEzLTAuMDYyYzAuMzczLTAuNDA3LDAuMzQ2LTEuMDQtMC4wNjItMS40MTNsLTEyLTExICAgYy0wLjE5Ni0wLjE3OS0wLjQ1Ny0wLjI2OC0wLjcyLTAuMjYyYy0wLjI2NSwwLjAxMi0wLjUxNSwwLjEyOS0wLjY5NCwwLjMyNWwtOS43OTQsMTAuNzI3bC00Ljc0My00Ljc0MyAgIGMtMC4zNzQtMC4zNzMtMC45NzItMC4zOTItMS4zNjgtMC4wNDRMNi4zMzksNDQuMjQ5Yy0wLjQxNSwwLjM2NS0wLjQ1NSwwLjk5Ny0wLjA5LDEuNDEyQzYuNDQ3LDQ1Ljg4Niw2LjcyMyw0Niw3LDQ2eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" height="50px"/></button>
+		<div class="modal fade" id="scapemenu" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" style="text-align; center">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">LANDSCAPE</h4>
+					</div>
+					<div class="modal-body" style="text-align: center;">
+						<button class="btn btn-info" style="width: 90%;" onclick="setScape('town')">TOWN</button>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div id="intro">
 			<br>
@@ -175,6 +179,30 @@
 						document.getElementById("intro").style.display = "none";
 						
 					}, 500);
+				}
+				function setScape(type) {
+					if( type == 'town' ) {
+						container = document.getElementById( 'container' );
+						camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 8000 );
+						controls = new THREE.DeviceOrientationControls( camera );
+						scene = new THREE.Scene();
+						scene.background = new THREE.Color( 0xffffff );
+						var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
+						// invert the geometry on the x-axis so that all of the faces point inward
+						geometry.scale( - 1, 1, 1 );
+						var material = new THREE.MeshBasicMaterial( {
+							map: new THREE.TextureLoader().load( 'textures/8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' )
+						} );
+						var mesh = new THREE.Mesh( geometry, material );
+						scene.add( mesh );
+						//
+						renderer = new THREE.WebGLRenderer();
+						renderer.setPixelRatio( window.devicePixelRatio );
+						renderer.setSize( window.innerWidth, window.innerHeight );
+						container.appendChild( renderer.domElement );
+						//
+						window.addEventListener( 'resize', onWindowResize, false );
+					}
 				}
 			</script>
 		</div>
