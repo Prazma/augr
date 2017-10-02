@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.0.9</span></div>
+		<div id="version"><strong>version: </strong><span>β.1.0</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -146,7 +146,7 @@
 				}
 				var mesh = new THREE.Mesh( geometry, material );
 				scene.add( mesh );
-				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 30, 30, 30 );
+				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				scene.add( helper );
