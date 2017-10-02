@@ -93,7 +93,8 @@
 				text-align: center;
 				color: #ffffff;
 				font-family: monospace;
-				color: #00ff00;
+				color: #000000;
+				background: #ffffff;
 			}
 			.arbtn {
 				background: #ff9933;
@@ -159,7 +160,7 @@
 			}
 			function animate() {
 				window.requestAnimationFrame( animate );
-				camera.position.y = -170;
+				camera.position.y = -150;
 				controls.update();
 				renderer.render( scene, camera );
 			}
