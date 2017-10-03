@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.1.9</span></div>
+		<div id="version"><strong>version: </strong><span>β.2.0</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -150,11 +150,12 @@
 					var mat = new THREE.MeshBasicMaterial( {
 						map: new THREE.TextureLoader().load( 'texture/human/test_m.jpg' )
 					} );
-				 	scene.add( obj );
-					obj.scale.set(5, 5, 5);
-					obj.position.z = -100;
-					obj.position.y = -200;
-					obj.material = mat;
+					var fin = new THREE.Mesh( obj, mat );
+				 	scene.add( fin );
+					fin.scale.set(5, 5, 5);
+					fin.position.z = -100;
+					fin.position.y = -200;
+					fin.material = mat;
 				} );
 				scene.add( mesh );
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
