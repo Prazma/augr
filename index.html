@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.2.3</span></div>
+		<div id="version"><strong>version: </strong><span>β.2.4</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -128,14 +128,6 @@
 				controls = new THREE.DeviceOrientationControls( camera );
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
-				
-				var objectLoader = new THREE.ObjectLoader();
-				objectLoader.load("test/marine_anims_core.json", function ( obj ) {
-				 	scene.add( obj );
-					obj.position.y = -200;
-					obj.position.z = -100;
-					obj.scale.set( 0.5, 0.5, 0.5 );
-				} );
 				
 				var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
 				// invert the geometry on the x-axis so that all of the faces point inward
@@ -154,6 +146,14 @@
 					} );
 				}
 				var mesh = new THREE.Mesh( geometry, material );
+				
+				var objectLoader = new THREE.ObjectLoader();
+				objectLoader.load("test/marine_anims_core.json", function ( obj ) {
+				 	scene.add( obj );
+					obj.position.y = -200;
+					obj.position.z = -100;
+					obj.scale.set( 0.5, 0.5, 0.5 );
+				} );
 				
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
@@ -220,3 +220,4 @@
 		</div>
 	</body>
 </html>
+
