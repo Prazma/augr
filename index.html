@@ -147,10 +147,14 @@
 				var mesh = new THREE.Mesh( geometry, material );
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/rendertarget.json", function ( obj ) {
+					var mat = new THREE.MeshBasicMaterial( {
+						map: new THREE.TextureLoader().load( 'texture/human/test_m.jpg' )
+					} );
 				 	scene.add( obj );
 					obj.scale.set(5, 5, 5);
 					obj.position.z = -100;
 					obj.position.y = -200;
+					obj.material = mat;
 				} );
 				scene.add( mesh );
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
