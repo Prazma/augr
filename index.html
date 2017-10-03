@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.2.0</span></div>
+		<div id="version"><strong>version: </strong><span>β.2.1</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -146,7 +146,7 @@
 				}
 				var mesh = new THREE.Mesh( geometry, material );
 				var objectLoader = new THREE.ObjectLoader();
-				loader.load( "js/model/renderObject.js", function( geom ){
+				ObjectLoader.load( "js/model/renderObject.js", function( geom ){
 					material = new THREE.MeshBasicMaterial( {
 						map: new THREE.TextureLoader().load( 'texture/human/test_m.jpg' )
 					} );
