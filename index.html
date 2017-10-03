@@ -146,18 +146,15 @@
 				}
 				var mesh = new THREE.Mesh( geometry, material );
 				var objectLoader = new THREE.ObjectLoader();
-				objectLoader.load("js/model/rendertarget.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( {
+				loader.load( "js/model/renderObject.js", function( geom ){
+					material = new THREE.MeshBasicMaterial( {
 						map: new THREE.TextureLoader().load( 'texture/human/test_m.jpg' )
 					} );
-					var fin = new THREE.Mesh( obj, mat );
-				 	scene.add( fin );
-					fin.scale.set(5, 5, 5);
-					fin.position.z = -100;
-					fin.position.y = -200;
-					fin.material = mat;
-				} );
-				scene.add( mesh );
+					var person = new THREE.Mesh( geom, material);
+					scene.add(person);
+					person.position.y = -200;
+					person.position.z = -50;
+				});
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
