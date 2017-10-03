@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.1.1</span></div>
+		<div id="version"><strong>version: </strong><span>β.1.2</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -148,8 +148,8 @@
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/rendertarget.json", function ( obj ) {
 				 	scene.add( obj );
+					obj.position.z = 10;
 				} );
-				obj.position.z = 10;
 				scene.add( mesh );
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
@@ -216,3 +216,4 @@
 		</div>
 	</body>
 </html>
+
