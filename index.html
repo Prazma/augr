@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.2.2</span></div>
+		<div id="version"><strong>version: </strong><span>β.2.3</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -128,6 +128,15 @@
 				controls = new THREE.DeviceOrientationControls( camera );
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xffffff );
+				
+				var objectLoader = new THREE.ObjectLoader();
+				objectLoader.load("test/marine_anims_core.json", function ( obj ) {
+				 	scene.add( obj );
+					obj.position.y = -200;
+					obj.position.z = -100;
+					obj.scale.set( 0.5, 0.5, 0.5 );
+				} );
+				
 				var geometry = new THREE.SphereBufferGeometry( 500, 60, 40 );
 				// invert the geometry on the x-axis so that all of the faces point inward
 				geometry.scale( - 1, 1, 1 );
@@ -145,24 +154,17 @@
 					} );
 				}
 				var mesh = new THREE.Mesh( geometry, material );
-				var objectLoader = new THREE.ObjectLoader();
-				objectLoader.load( "js/model/renderObject.json", function( geom ){
-					var mae = new THREE.MeshBasicMaterial( {map: new THREE.TextureLoader().load( 'texture/human/test_m.jpg' )} );
-					var person = new THREE.Mesh( geom, mae );
-					scene.add(person);
-					person.position.y = -200;
-					person.position.z = -50;
-				});
+				
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
 				scene.add( helper );
-				//
+				
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
-				//
+				
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
 			function animate() {
