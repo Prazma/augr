@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.2.1 (fixed)</span></div>
+		<div id="version"><strong>version: </strong><span>β.2.1 (alpha)</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -147,10 +147,8 @@
 				var mesh = new THREE.Mesh( geometry, material );
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load( "js/model/renderObject.js", function( geom ){
-					material = new THREE.MeshBasicMaterial( {
-						map: new THREE.TextureLoader().load( 'texture/human/test_m.jpg' )
-					} );
-					var person = new THREE.Mesh( geom, material);
+					var mae = new THREE.MeshBasicMaterial( {map: new THREE.TextureLoader().load( 'texture/human/test_m.jpg' )} );
+					var person = new THREE.Mesh( geom, mae );
 					scene.add(person);
 					person.position.y = -200;
 					person.position.z = -50;
