@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.3.2</span></div>
+		<div id="version"><strong>version: </strong><span>β.3.3</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -154,6 +154,18 @@
 					obj.position.z = -100;
 					obj.position.y = -200;
 				} );
+				var jsonLoader = new THREE.JSONLoader();
+				
+				jsonLoader.load("js/model/rendertarget.json", addthree1ToScene);
+				function addthree1ToScene( modil, materials ) {
+					material = new THREE.MeshBasicMaterial( { color: 0xBC1A1F, wireframe: true} );
+					var three1 = new THREE.Mesh( modil, material );
+					scene.add( three1 );
+					console.log(three1);
+					three1.scale.set(5, 5, 5);
+					three1.position.z = -100;
+					three1.position.y = -200;
+				}
 				scene.add( mesh );
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
