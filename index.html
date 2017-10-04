@@ -154,7 +154,7 @@
 				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( { color: 0xbc1a1f, wireframe: false } );
+					var mat = new THREE.MeshBasicMaterial( { color: 0xbc1a1f, wireframe: true } );
 					scene.add( obj );
 					obj.material = mat;
 					obj.scale.set(5, 5, 5);
