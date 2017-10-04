@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.3.5</span></div>
+		<div id="version"><strong>version: </strong><span>β.3.6</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -145,9 +145,16 @@
 					} );
 				}
 				var mesh = new THREE.Mesh( geometry, material );
+				
+				var ambient = new THREE.AmbientLight( 0x444444 );
+				scene.add( ambient );
+				var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+				directionalLight.position.set( 0, 0, 1 ).normalize();
+				scene.add( directionalLight );
+				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( { color: 0xbc1a1f, wireframe: true } );
+					var mat = new THREE.MeshBasicMaterial( { color: 0xbc1a1f, wireframe: false } );
 					scene.add( obj );
 					obj.material = mat;
 					obj.scale.set(5, 5, 5);
