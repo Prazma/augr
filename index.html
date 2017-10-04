@@ -153,10 +153,11 @@
 					obj.scale.set(5, 5, 5);
 					obj.position.z = -100;
 					obj.position.y = -200;
+					obj.rotation.x = -1.55;
 				} );
 				var jsonLoader = new THREE.JSONLoader();
 				
-				jsonLoader.load("js/model/rendertarget.json", addthree1ToScene);
+				jsonLoader.load("js/model/renderObject.json", addthree1ToScene);
 				function addthree1ToScene( modil, materials ) {
 					var pill = new THREE.MeshBasicMaterial( { color: 0xbc1a1f, wireframe: true} );
 					var three1 = new THREE.Mesh( modil, pill );
