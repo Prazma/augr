@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.4.0 (beta pre)</span></div>
+		<div id="version"><strong>version: </strong><span>β.4.0</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -151,6 +151,16 @@
 				var directionalLight = new THREE.DirectionalLight( 0xffeedd );
 				directionalLight.position.set( 0, 0, 1 ).normalize();
 				scene.add( directionalLight );
+				var faceGeometry = new THREE.SphereGeometry( 1 );
+				var faceMaterial = new THREE.MeshBasicMaterial( {
+					color: 0x42e2f4,
+					wireframe: false
+				} );
+				var face = new THREE.Mesh( faceGeometry, faceMaterial );
+				scene.add(face);
+				face.scale.set( 0.25, 0.45, 0.025);
+				face.position.y = -130;
+				face.position.z = -99;
 				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
