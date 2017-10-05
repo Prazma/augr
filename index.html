@@ -136,7 +136,7 @@
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
 		
-		<span style="display: none" id="mode">0</span>
+		<span style="display: none" id="mode">1</span>
 
 		<script>
 			var container, camera, scene, renderer, controls;
@@ -175,7 +175,7 @@
 				var face = new THREE.Mesh( faceGeometry, material );
 				scene.add(face);
 				face.scale.set( 2, 3.2, 0.1);
-				face.position.y = -125;
+				face.position.y = -122;
 				face.position.z = -50;
 				
 				var ambient = new THREE.AmbientLight( 0x444444 );
@@ -202,17 +202,6 @@
 					obj.scale.set(4.9, 4.9, 4.9);
 					obj.position.z = -100;
 					obj.position.y = -199;
-					obj.rotation.x = -1.55;
-				} );
-				var jsonLoader = new THREE.JSONLoader();
-				var objectLoader = new THREE.ObjectLoader();
-				objectLoader.load("js/model/renderObject.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( { color: 0x42e2f4, wireframe: true } );
-					scene.add( obj );
-					obj.material = mat;
-					obj.scale.set(5, 5, 5);
-					obj.position.z = 0.7;
-					obj.position.y = -200;
 					obj.rotation.x = -1.55;
 				} );
 				var jsonLoader = new THREE.JSONLoader();
@@ -293,7 +282,7 @@
 			</script>
 		</div>
 		<div id="terminal">
-			<span>AUGGER TERMINAL<br><div class="redbck"><strong>version: </strong><span>β.4.9</span></div><br>beginning processing log...</span><br>
+			<span>AUGGER TERMINAL -augrOS-<br><div class="redbck"><strong>version: </strong><span>β.5.0</span></div><br>beginning processing log...</span><br>
 		</div>
 		<script>
 			const terminal = document.getElementById("terminal");
@@ -313,11 +302,8 @@
 				terminal.innerHTML += "<span>starting <strong class='redbck'>VR on </strong><span class='redbck'>" + navigator.userAgent +"</span> platform</span><br>";
 			}, 3000);
 			setTimeout( function () {
-				terminal.innerHTML += "<div class='redbck'><span>starting all process ready: <strong>!ALL ERRORS ON JAVASCRIPT TERMINAL!</span></strong></div>";
-			}, 4000);
-			setTimeout( function () {
 				terminal.style.display = "none";
-			}, 6000);
+			}, 5000);
 		</script>
 	</body>
 </html>
