@@ -111,12 +111,12 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.3.9</span></div>
+		<div id="version"><strong>version: </strong><span>β.4.0 (beta pre)</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
 		
-		<span style="display: none" id="mode">1</span>
+		<span style="display: none" id="mode">0</span>
 
 		<script>
 			var container, camera, scene, renderer, controls;
@@ -154,7 +154,7 @@
 				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( { color: 0xbc1a1f, wireframe: true } );
+					var mat = new THREE.MeshBasicMaterial( { color: 0xFF512F, wireframe: true } );
 					scene.add( obj );
 					obj.material = mat;
 					obj.scale.set(5, 5, 5);
