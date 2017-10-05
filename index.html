@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.4.7</span></div>
+		<div id="version"><strong>version: </strong><span>β.4.8</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -145,22 +145,24 @@
 					} );
 				}
 				var mesh = new THREE.Mesh( geometry, material );
+				scene.add( mesh );
+				
+				var faceGeometry = new THREE.SphereGeometry( 1 );
+				var faceMaterial = new THREE.MeshBasicMaterial( {
+					color: 0x42e2f4,
+					wireframe: false
+				} );
+				var face = new THREE.Mesh( faceGeometry, material );
+				scene.add(face);
+				face.scale.set( 2, 3.2, 0.1);
+				face.position.y = -125;
+				face.position.z = -50;
 				
 				var ambient = new THREE.AmbientLight( 0x444444 );
 				scene.add( ambient );
 				var directionalLight = new THREE.DirectionalLight( 0xffeedd );
 				directionalLight.position.set( 0, 0, 1 ).normalize();
 				scene.add( directionalLight );
-				var faceGeometry = new THREE.SphereGeometry( 1 );
-				var faceMaterial = new THREE.MeshBasicMaterial( {
-					color: 0x42e2f4,
-					wireframe: false
-				} );
-				var face = new THREE.Mesh( faceGeometry, faceMaterial );
-				scene.add(face);
-				face.scale.set( 2, 3.2, 0.1);
-				face.position.y = -125;
-				face.position.z = -50;
 				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
@@ -207,7 +209,6 @@
 					three1.rotation.x = -1.55;
 				}
 				
-				scene.add( mesh );
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
 				var helper = new THREE.Mesh( helperGeometry, helperMaterial );
@@ -236,7 +237,7 @@
 				init();
 			}
 		</script>
-		<div class="alert" style="display: none">
+		  <div class="alert" style="display: none">
 			<span class="dark">AUGGER is on maintenance</span>
 		</div>
 		<button class="arbtn" data-toggle="modal" style="display: none;" data-target="#scapemenu"><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU4IDU4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1OCA1ODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiPgo8Zz4KCTxwYXRoIGQ9Ik01Nyw2SDFDMC40NDgsNiwwLDYuNDQ3LDAsN3Y0NGMwLDAuNTUzLDAuNDQ4LDEsMSwxaDU2YzAuNTUyLDAsMS0wLjQ0NywxLTFWN0M1OCw2LjQ0Nyw1Ny41NTIsNiw1Nyw2eiBNNTYsNTBIMlY4aDU0VjUweiIgZmlsbD0iI0ZGRkZGRiIvPgoJPHBhdGggZD0iTTE2LDI4LjEzOGMzLjA3MSwwLDUuNTY5LTIuNDk4LDUuNTY5LTUuNTY4QzIxLjU2OSwxOS40OTgsMTkuMDcxLDE3LDE2LDE3cy01LjU2OSwyLjQ5OC01LjU2OSw1LjU2OSAgIEMxMC40MzEsMjUuNjQsMTIuOTI5LDI4LjEzOCwxNiwyOC4xMzh6IE0xNiwxOWMxLjk2OCwwLDMuNTY5LDEuNjAyLDMuNTY5LDMuNTY5UzE3Ljk2OCwyNi4xMzgsMTYsMjYuMTM4cy0zLjU2OS0xLjYwMS0zLjU2OS0zLjU2OCAgIFMxNC4wMzIsMTksMTYsMTl6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8cGF0aCBkPSJNNyw0NmMwLjIzNCwwLDAuNDctMC4wODIsMC42Ni0wLjI0OWwxNi4zMTMtMTQuMzYybDEwLjMwMiwxMC4zMDFjMC4zOTEsMC4zOTEsMS4wMjMsMC4zOTEsMS40MTQsMHMwLjM5MS0xLjAyMywwLTEuNDE0ICAgbC00LjgwNy00LjgwN2w5LjE4MS0xMC4wNTRsMTEuMjYxLDEwLjMyM2MwLjQwNywwLjM3MywxLjA0LDAuMzQ1LDEuNDEzLTAuMDYyYzAuMzczLTAuNDA3LDAuMzQ2LTEuMDQtMC4wNjItMS40MTNsLTEyLTExICAgYy0wLjE5Ni0wLjE3OS0wLjQ1Ny0wLjI2OC0wLjcyLTAuMjYyYy0wLjI2NSwwLjAxMi0wLjUxNSwwLjEyOS0wLjY5NCwwLjMyNWwtOS43OTQsMTAuNzI3bC00Ljc0My00Ljc0MyAgIGMtMC4zNzQtMC4zNzMtMC45NzItMC4zOTItMS4zNjgtMC4wNDRMNi4zMzksNDQuMjQ5Yy0wLjQxNSwwLjM2NS0wLjQ1NSwwLjk5Ny0wLjA5LDEuNDEyQzYuNDQ3LDQ1Ljg4Niw2LjcyMyw0Niw3LDQ2eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" height="50px"/></button>
