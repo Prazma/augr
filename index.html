@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.4.3 (fixed)</span></div>
+		<div id="version"><strong>version: </strong><span>β.4.4 (fixed)</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -158,8 +158,8 @@
 				} );
 				var face = new THREE.Mesh( faceGeometry, faceMaterial );
 				scene.add(face);
-				face.scale.set( 0.75, 1.35, 0.075);
-				face.position.y = -100;
+				face.scale.set( 1, 1.6, 0.1);
+				face.position.y = -80;
 				face.position.z = -50;
 				
 				var objectLoader = new THREE.ObjectLoader();
@@ -208,7 +208,7 @@
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
-			function animate() {
+			function animate( time ) {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -130;
 				controls.update();
