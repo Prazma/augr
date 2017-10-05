@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.4.6</span></div>
+		<div id="version"><strong>version: </strong><span>β.4.7</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -159,7 +159,7 @@
 				var face = new THREE.Mesh( faceGeometry, faceMaterial );
 				scene.add(face);
 				face.scale.set( 2, 3.2, 0.1);
-				face.position.y = -120;
+				face.position.y = -125;
 				face.position.z = -50;
 				
 				var objectLoader = new THREE.ObjectLoader();
@@ -183,18 +183,18 @@
 					obj.rotation.x = -1.55;
 				} );
 				var jsonLoader = new THREE.JSONLoader();
+				var objectLoader = new THREE.ObjectLoader();
+				objectLoader.load("js/model/renderObject.json", function ( obj ) {
+					var mat = new THREE.MeshBasicMaterial( { color: 0x42e2f4, wireframe: true } );
+					scene.add( obj );
+					obj.material = mat;
+					obj.scale.set(5, 5, 5);
+					obj.position.z = 0.7;
+					obj.position.y = -200;
+					obj.rotation.x = -1.55;
+				} );
+				var jsonLoader = new THREE.JSONLoader();
 				
-				jsonLoader.load("js/model/renderObject.json", addthree1ToScene);
-				function addthree1ToScene( modil, materials ) {
-					var pill = new THREE.MeshBasicMaterial( { color: 0xbc1a1f, wireframe: true} );
-					var three1 = new THREE.Mesh( modil, pill );
-					scene.add( three1 );
-					console.log(three1);
-					three1.scale.set(5, 5, 5);
-					three1.position.z = -100;
-					three1.position.y = -200;
-					three1.rotation.x = -1.55;
-				}
 				jsonLoader.load("js/model/renderObject.json", addthree1ToScene);
 				function addthree1ToScene( modil, materials ) {
 					var pill = new THREE.MeshBasicMaterial( { color: 0x42e2f4, wireframe: true} );
@@ -206,6 +206,7 @@
 					three1.position.y = -200;
 					three1.rotation.x = -1.55;
 				}
+				
 				scene.add( mesh );
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
