@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.4.0</span></div>
+		<div id="version"><strong>version: </strong><span>β.4.0 (fixed)</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -160,7 +160,7 @@
 				scene.add(face);
 				face.scale.set( 0.25, 0.45, 0.025);
 				face.position.y = -130;
-				face.position.z = -99;
+				face.position.z = -75;
 				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
