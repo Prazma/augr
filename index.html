@@ -111,7 +111,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.4.5</span></div>
+		<div id="version"><strong>version: </strong><span>β.4.6</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -158,7 +158,7 @@
 				} );
 				var face = new THREE.Mesh( faceGeometry, faceMaterial );
 				scene.add(face);
-				face.scale.set( 1, 1.6, 0.1);
+				face.scale.set( 2, 3.2, 0.1);
 				face.position.y = -120;
 				face.position.z = -50;
 				
@@ -192,6 +192,17 @@
 					console.log(three1);
 					three1.scale.set(5, 5, 5);
 					three1.position.z = -100;
+					three1.position.y = -200;
+					three1.rotation.x = -1.55;
+				}
+				jsonLoader.load("js/model/renderObject.json", addthree1ToScene);
+				function addthree1ToScene( modil, materials ) {
+					var pill = new THREE.MeshBasicMaterial( { color: 0x42e2f4, wireframe: true} );
+					var three1 = new THREE.Mesh( modil, pill );
+					scene.add( three1 );
+					console.log(three1);
+					three1.scale.set(5, 5, 5);
+					three1.position.z = 0.6;
 					three1.position.y = -200;
 					three1.rotation.x = -1.55;
 				}
