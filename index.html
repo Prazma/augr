@@ -194,6 +194,7 @@
 		<script>
 			var container, camera, scene, renderer, controls;
 			function init() {
+				var txtr = document.getElementById("blah").src;
 				container = document.getElementById( 'container' );
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 8000 );
 				controls = new THREE.DeviceOrientationControls( camera );
@@ -206,7 +207,7 @@
 					color: 0x000000
 				} );
 				var material1 = new THREE.MeshBasicMaterial( {
-					map: new THREE.TextureLoader().load( 'texture/8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' )
+					map: new THREE.TextureLoader().load( txtr )
 				} );
 				var material2 = new THREE.MeshBasicMaterial( {
 					color: 0x000000
@@ -316,7 +317,7 @@
 		</div>
 		<div id="btatester" style="opacity: 0">
 			<br><br><span>Welcome Beta Tester</span><br>
-			<span style="font-size: 15px;">version: 5.5 BETA</span>
+			<span style="font-size: 15px;">version: 5.6 BETA</span>
 		</div>
 		<div id="setup" style="opacity: 0;">
 			<div id="frssetup">
@@ -324,9 +325,10 @@
 				<span class="description">クローンの顔に使われます</span><br>
 				<img id="imgpreview" style="margin-top: 30px;" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPGc+CgkJPGc+CgkJCTxyZWN0IHg9IjEiIHk9IjQuNSIgc3R5bGU9ImZpbGw6I0VDRjBGMTsiIHdpZHRoPSI1NSIgaGVpZ2h0PSI0MiIvPgoJCQk8cGF0aCBzdHlsZT0iZmlsbDojNTQ1RTczOyIgZD0iTTU3LDQ3LjVIMHYtNDRoNTdWNDcuNXogTTIsNDUuNWg1M3YtNDBIMlY0NS41eiIvPgoJCTwvZz4KCQk8Zz4KCQkJPHJlY3QgeD0iNSIgeT0iOC41IiBzdHlsZT0iZmlsbDojNTQ1RTczOyIgd2lkdGg9IjQ3IiBoZWlnaHQ9IjM0Ii8+CgkJCTxwYXRoIHN0eWxlPSJmaWxsOiNFQ0YwRjE7IiBkPSJNNTMsNDMuNUg0di0zNmg0OVY0My41eiBNNiw0MS41aDQ1di0zMkg2VjQxLjV6Ii8+CgkJPC9nPgoJCTxjaXJjbGUgc3R5bGU9ImZpbGw6I0YzRDU1QTsiIGN4PSIxNSIgY3k9IjE3LjA2OSIgcj0iNC41NjkiLz4KCQk8cG9seWdvbiBzdHlsZT0iZmlsbDojMTFBMDg1OyIgcG9pbnRzPSI1MSwzMi42MTEgNTAsMzEuNSAzOCwyMC41IDI3LjUsMzIgMzIuOTgzLDM3LjQ4MyAzNyw0MS41IDUxLDQxLjUgICAiLz4KCQk8cG9seWdvbiBzdHlsZT0iZmlsbDojMjZCOTk5OyIgcG9pbnRzPSI2LDQxLjUgMzcsNDEuNSAzMi45ODMsMzcuNDgzIDIyLjAxNywyNi41MTcgNiw0MC41ICAgIi8+Cgk8L2c+Cgk8Zz4KCQk8Y2lyY2xlIHN0eWxlPSJmaWxsOiMyNkI5OTk7IiBjeD0iNDgiIGN5PSI0NC41IiByPSIxMiIvPgoJCTxwYXRoIHN0eWxlPSJmaWxsOiNGRkZGRkY7IiBkPSJNNTQuNTcxLDM4LjY3OWMtMC40NTUtMC4zMTYtMS4wNzctMC4yMDQtMS4zOTIsMC4yNWwtNS41OTYsOC4wNGwtMy45NDktMy4yNDIgICAgYy0wLjQyNi0wLjM1MS0xLjA1Ny0wLjI4OC0xLjQwNywwLjEzOWMtMC4zNTEsMC40MjctMC4yODksMS4wNTcsMC4xMzksMS40MDdsNC43ODYsMy45MjljMC4xOCwwLjE0NywwLjQwNCwwLjIyNywwLjYzNCwwLjIyNyAgICBjMC4wNDUsMCwwLjA5MS0wLjAwMywwLjEzNy0wLjAwOWMwLjI3Ni0wLjAzOSwwLjUyNC0wLjE5LDAuNjg0LTAuNDE5bDYuMjE0LTguOTI5QzU1LjEzNiwzOS42MTgsNTUuMDI0LDM4Ljk5NSw1NC41NzEsMzguNjc5eiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" height="100px"/><br>
 				<span class="description">横向きの画像をアップロードしてください</span><br><br>
+				<img id="blah" src="" height="50px" width="250px" style="border: 1px solid #bfbfbf; display: none">
 				<div class="fileUpload btn btn-primary" style="width: 90%; padding: 10px">
-					<span>写真を選択</span>
-					<input type="file" class="upload" onchange="chkface()"/>
+					<span id="updlabel">写真を選択</span>
+					<input id="imgInp" type="file" class="upload"/>
 				</div><br>
 				<button id="nxtstp" onclick="strtnol()" style="margin-top: 20px; padding: 10px; width: 90%" class="btn btn-info" disabled>スタート</button>
 			</div>
@@ -342,21 +344,23 @@
 					animate();
 				}, 500);
 			}
-			function readURL(input) {
-				if (input.files && input.files[0]) {
-					var reader = new FileReader();
-					reader.onload = function (e) {
-						$('#imgpreview').attr('src', e.target.result);
-					}
-					reader.readAsDataURL(input.files[0]);
-				}
-			}
-			function chkface() {
-				setTimeout( function () {
-					document.getElementById("nxtstp").disabled = false;
-					readURL(this);
-				}, 300);
-			}
+			    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#imgInp").change(function(){
+		document.getElementById("nxtstp").disabled = false;
+		document.getElementById("blah").style.display = "inline";
+        readURL(this);
+    });
 			var terminalMode = document.getElementById("terminalMode").innerHTML;
 			if( terminalMode == "on") {
 				const terminal = document.getElementById("terminal");
@@ -387,7 +391,7 @@
 				setTimeout( function () {
 					document.getElementById("btatester").style.opacity = "0";
 					document.getElementById("setup").style.opacity = "1";
-				}, 1000);
+				}, 2000);
 			}
 		</script>
 	</body>
