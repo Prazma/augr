@@ -156,15 +156,15 @@
 				} );
 				var mode = document.getElementById("mode").innerHTML;
 				if( mode == "1") {
-					var material = new THREE.MeshBasicMaterial( {
+					var material1 = new THREE.MeshBasicMaterial( {
 						map: new THREE.TextureLoader().load( 'texture/8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' )
 					} );
 				} else {
-					var material = new THREE.MeshBasicMaterial( {
+					var material2 = new THREE.MeshBasicMaterial( {
 						color: 0x000000
 					} );
 				}
-				var mesh = new THREE.Mesh( geometry, material );
+				var mesh = new THREE.Mesh( geometry, material2 );
 				scene.add( mesh );
 				
 				var faceGeometry = new THREE.SphereGeometry( 1 );
@@ -172,7 +172,7 @@
 					color: 0x42e2f4,
 					wireframe: false
 				} );
-				var face = new THREE.Mesh( faceGeometry, material );
+				var face = new THREE.Mesh( faceGeometry, material1 );
 				scene.add(face);
 				face.scale.set( 2, 3.2, 0.1);
 				face.position.y = -124;
