@@ -342,8 +342,20 @@
 					animate();
 				}, 500);
 			}
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function (e) {
+						$('#imgpreview').attr('src', e.target.result);
+					}
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
 			function chkface() {
-				document.getElementById("nxtstp").disabled = false;
+				setTimeout( function () {
+					document.getElementById("nxtstp").disabled = false;
+					readURL(this);
+				}, 300);
 			}
 			var terminalMode = document.getElementById("terminalMode").innerHTML;
 			if( terminalMode == "on") {
