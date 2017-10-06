@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>AUGGER</title>
+		<title>UnitAR</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
 		<link rel="apple-touch-icon" href="3D27917E-A0A6-4B3D-9D11-6C6879B5CA3A.jpeg">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<meta name="apple-mobile-web-app-title" content="AUGGER">
+		<meta name="apple-mobile-web-app-title" content="UNITAR">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="white">
 		<style>
@@ -216,15 +216,15 @@
 				var mesh = new THREE.Mesh( geometry, material2 );
 				scene.add( mesh );
 				
-				var faceGeometry = new THREE.SphereGeometry( 1 );
+				var faceGeometry = new THREE.CircleGeometry( 1 );
 				var faceMaterial = new THREE.MeshBasicMaterial( {
 					color: 0x42e2f4,
 					wireframe: false
 				} );
 				var face = new THREE.Mesh( faceGeometry, material1 );
 				scene.add(face);
-				face.scale.set( 4.2, 3, 0.1);
 				face.position.y = -124;
+				face.scale.set(3.2, 2, 0.1);
 				face.position.z = -50;
 				face.rotation.z = -1.573
 				
@@ -319,7 +319,7 @@
 		</div>
 		<div id="btatester" style="opacity: 0">
 			<br><br><span>Welcome Beta Tester</span><br>
-			<span style="font-size: 15px;">version: 5.8 BETA</span>
+			<span style="font-size: 15px;">version: 6.0 BETA</span>
 		</div>
 		<div id="setup" style="opacity: 0;">
 			<div id="frssetup">
@@ -327,7 +327,7 @@
 				<span class="description">クローンの顔に使われます</span><br><br>
 				<img id="blah" src="" height="250px" width="150px" style="border: 1px solid #bfbfbf; display: none"><br>
 				<img id="imgpreview" style="margin-top: 30px;" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDYwIDYwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA2MCA2MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPGc+CgkJPGc+CgkJCTxyZWN0IHg9IjEiIHk9IjQiIHN0eWxlPSJmaWxsOiNFQ0YwRjE7IiB3aWR0aD0iNTUiIGhlaWdodD0iNDIiLz4KCQkJPHBhdGggc3R5bGU9ImZpbGw6IzU0NUU3MzsiIGQ9Ik01Nyw0N0gwVjNoNTdWNDd6IE0yLDQ1aDUzVjVIMlY0NXoiLz4KCQk8L2c+CgkJPGc+CgkJCTxyZWN0IHg9IjUiIHk9IjgiIHN0eWxlPSJmaWxsOiM1NDVFNzM7IiB3aWR0aD0iNDciIGhlaWdodD0iMzQiLz4KCQkJPHBhdGggc3R5bGU9ImZpbGw6I0VDRjBGMTsiIGQ9Ik01Myw0M0g0VjdoNDlWNDN6IE02LDQxaDQ1VjlINlY0MXoiLz4KCQk8L2c+CgkJPGNpcmNsZSBzdHlsZT0iZmlsbDojRjNENTVBOyIgY3g9IjE1IiBjeT0iMTYuNTY5IiByPSI0LjU2OSIvPgoJCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiMxMUEwODU7IiBwb2ludHM9IjUxLDMyLjExMSA1MCwzMSAzOCwyMCAyNy41LDMxLjUgMzIuOTgzLDM2Ljk4MyAzNyw0MSA1MSw0MSAgICIvPgoJCTxwb2x5Z29uIHN0eWxlPSJmaWxsOiMyNkI5OTk7IiBwb2ludHM9IjYsNDEgMzcsNDEgMzIuOTgzLDM2Ljk4MyAyMi4wMTcsMjYuMDE3IDYsNDAgICAiLz4KCTwvZz4KCTxnPgoJCTxyZWN0IHg9IjM4IiB5PSIzNSIgc3R5bGU9ImZpbGw6IzQ4QTBEQzsiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiIvPgoJCTxyZWN0IHg9IjQ4IiB5PSI0MSIgc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHdpZHRoPSIyIiBoZWlnaHQ9IjE2Ii8+CgkJPHBvbHlnb24gc3R5bGU9ImZpbGw6I0ZGRkZGRjsiIHBvaW50cz0iNTQuMjkzLDQ3LjcwNyA0OSw0Mi40MTQgNDMuNzA3LDQ3LjcwNyA0Mi4yOTMsNDYuMjkzIDQ5LDM5LjU4NiA1NS43MDcsNDYuMjkzICAgIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" height="100px"/><br>
-				<span id="updinfo" class="description">縦向きの画像をアップロードしてください</span><br>
+				<span id="updinfo" class="description">縦向きの画像をアップロードしよう</span><br>
 				<div class="fileUpload btn btn-primary" style="width: 90%; padding: 10px">
 					<span id="updlabel">写真を選択</span>
 					<input id="imgInp" type="file" class="upload"/>
@@ -390,7 +390,8 @@
 				setTimeout( function () {
 					terminal.style.display = "none";
 					document.getElementById("btatester").style.opacity = "0";
-				}, 5000);
+					document.getElementById("setup").style.opacity = "1";
+				}, 6000);
 			} else {
 				document.getElementById("btatester").style.opacity = "1";
 				setTimeout( function () {
