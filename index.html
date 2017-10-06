@@ -131,7 +131,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><strong>version: </strong><span>β.4.8</span></div>
+		<div id="version"><span id="platform">undetected</span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -154,16 +154,12 @@
 				var material = new THREE.MeshBasicMaterial( {
 					color: 0x000000
 				} );
-				var mode = document.getElementById("mode").innerHTML;
-				if( mode == "1") {
-					var material1 = new THREE.MeshBasicMaterial( {
-						map: new THREE.TextureLoader().load( 'texture/8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' )
-					} );
-				} else {
-					var material2 = new THREE.MeshBasicMaterial( {
-						color: 0x000000
-					} );
-				}
+				var material1 = new THREE.MeshBasicMaterial( {
+					map: new THREE.TextureLoader().load( 'texture/8C4BBEEC-9017-4CA7-9104-91B94661DE85.jpeg' )
+				} );
+				var material2 = new THREE.MeshBasicMaterial( {
+					color: 0x000000
+				} );
 				var mesh = new THREE.Mesh( geometry, material2 );
 				scene.add( mesh );
 				
@@ -267,7 +263,7 @@
 			</div>
 		</div>
 		<div id="intro" style="display: none;">
-			<br>
+			<br> 
 			<span class="title">AUGGER</span>
 			<br>
 			<span class="ack">talk to a clone of people you know</span>
@@ -282,7 +278,7 @@
 			</script>
 		</div>
 		<div id="terminal">
-			<span>AUGGER TERMINAL -augrOS-<br><div class="redbck"><strong>version: </strong><span>β.5.2</span></div><br>beginning processing log...</span><br>
+			<span>AUGGER TERMINAL -augrOS-<br><div class="redbck"><strong>version: </strong><span>β.5.3 (test)</span></div><br>beginning processing log...</span><br>
 		</div>
 		<script>
 			const terminal = document.getElementById("terminal");
@@ -303,6 +299,7 @@
 			}, 3000);
 			setTimeout( function () {
 				terminal.style.display = "none";
+				document.getElementById("platform").innerHTML = navigator.usergent;
 			}, 5000);
 		</script>
 	</body>
