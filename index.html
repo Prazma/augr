@@ -223,8 +223,8 @@
 				} );
 				var face = new THREE.Mesh( faceGeometry, material1 );
 				scene.add(face);
-				face.position.y = -124;
-				face.scale.set(3.2, 2.15, 0.1);
+				face.position.y = -124.5;
+				face.scale.set(3.2, 2.2, 0.1);
 				face.position.z = -50;
 				face.rotation.z = -1.5708
 				
@@ -320,7 +320,7 @@
 		<div id="btatester" style="opacity: 0">
 			<br><br><span>Welcome Beta Tester</span><br>
 			<span style="font-size: 15px;">version: 6.6 BETA</span><br>
-			<span style="font-size: 15px;">SAT - MON : VR DAY</span><br>
+			<span id="rdmpost" style="font-size: 15px;">"Almost never" is an interesting concept!</span><br>
 		</div>
 		<div id="setup" style="opacity: 0;">
 			<div id="frssetup">
@@ -338,6 +338,10 @@
 		</div>
 		<span style="display: none;" id="terminalMode">off</span>
 		<script>
+			function death() {
+				var player;
+				document.getElementById("dthmes").innerHTML = player "experienced kinetic energy";
+			}
 			function strtnol() {
 				const stp = document.getElementById("setup");
 				stp.style.opacity = "0";
