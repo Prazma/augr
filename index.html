@@ -200,8 +200,10 @@
 
 		<script>
 			var container, camera, scene, renderer, controls;
-			var frslati = 0;
-			var frslong = 0;
+			var frslati;
+			var frslong;
+			var x = 0;
+			var z = 0;
 			function getLocation() {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(showPosition);
@@ -298,8 +300,10 @@
 			function animate( time ) {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -130;
-				camera.position.z = ofe;
-				camera.position.x = tin;
+				camera.position.z = z;
+				camera.position.x = x;
+				document.getElementById("shoulati").innerHTML = z;
+				document.getElementById("shoulong").innerHTML = x;
 				controls.update();
 				renderer.render( scene, camera );
 			}
@@ -326,8 +330,8 @@
 			}
 			function showPositioner(position) {
 				var calc = frslati - position.coords.latitude;
-				document.getElementById("shoulati").innerHTML = calc * 100000;
-				document.getElementById("shoulong").innerHTML = frslong - position.coords.latitude - 100;
+				z = calc * 100000;
+				x = frslong - position.coords.latitude - 100;
 				getLocationer();
 			}
 		</script>
