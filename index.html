@@ -321,8 +321,9 @@
 			}
 			function showPositioner(position) {
 				var calc = frslati - position.coords.latitude;
-				camera.position.z = calc * 100000;
-				camera.position.x = document.getElementById("long").innerHTML = frslong - position.coords.latitude - 100;
+				var git = frslong - position.coords.latitude - 100;
+				camera.position.z = calc * 2000000;
+				camera.position.x = document.getElementById("long").innerHTML = git * 20;
 				getLocationer();
 			}
 		</script>
