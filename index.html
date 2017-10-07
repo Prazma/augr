@@ -200,15 +200,13 @@
 
 		<script>
 			var container, camera, scene, renderer, controls;
-			var frslati;
-			var frslong;
-			var ofe = 0;
-			var tin = 0;
-			function pos() {
+			var frslati = 0;
+			var frslong = 0;
+			function getLocation() {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(showPosition);
 				} else { 
-					alert = "エラーが発生しました（プレイヤーが動けません）";
+					x.innerHTML = "Geolocation is not supported by this browser.";
 				}
 			}
 			function init() {
@@ -322,21 +320,18 @@
 			function getLocationer() {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(showPositioner);
-				} else {
-					console.log("failed to move player... player cannnot feel kinetic energy");
+				} else { 
+					x.innerHTML = "Geolocation is not supported by this browser.";
 				}
 			}
 			function showPositioner(position) {
 				var calc = frslati - position.coords.latitude;
-				var git = frslong - position.coords.latitude - 100;
-				ofe = calc * 2000000;
-				tin = document.getElementById("long").innerHTML = git * 20;
-				document.getElementById("shoulati").innerHTML = ofe;
-				document.getElementById("shoulong").innerHTML = tin;
+				document.getElementById("shoulati").innerHTML = calc * 100000;
+				document.getElementById("shoulong").innerHTML = frslong - position.coords.latitude - 100;
 				getLocationer();
 			}
 		</script>
-		  <div class="alert" style="display: none">
+		<div class="alert" style="display: none">
 			<span class="dark">AUGGER is on maintenance</span>
 		</div>
 		<div id="intro" style="display: none;">
