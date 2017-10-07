@@ -191,7 +191,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><span style="color: #737373; font-family: 'Product Sans', Arial, sans-serif;"><strong>Latitude: </strong> <span id="shoulati">0</span></span><span style="color: #737373; font-family: 'Product Sans', Arial, sans-serif;"><strong>Longitude: </strong> <span id="shoulong">0</span></span></div>
+		<div id="version"><span style="color: #737373; font-family: 'Product Sans', Arial, sans-serif;"><strong>Latitude: </strong> <span id="shoulati">0</span></span> <span style="color: #737373; font-family: 'Product Sans', Arial, sans-serif;"><strong>Longitude: </strong> <span id="shoulong">0</span></span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -315,6 +315,7 @@
 			function showPosition(position) {
 				frslati = position.coords.latitude;
 				frslong = position.coords.longitude;
+				getLocationer();
 			}
 			function getLocationer() {
 				if (navigator.geolocation) {
