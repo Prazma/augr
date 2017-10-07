@@ -191,7 +191,7 @@
 
 		<div id="container"></div>
 		
-		<div id="version"><span id="platform" style="color: #737373; font-family: 'Product Sans', Arial, sans-serif;"><strong>Augger</strong> AR</span></div>
+		<div id="version"><span style="color: #737373; font-family: 'Product Sans', Arial, sans-serif;"><strong>Latitude: </strong> <span id="shoulati">0</span></span><span style="color: #737373; font-family: 'Product Sans', Arial, sans-serif;"><strong>Longitude: </strong> <span id="shoulong">0</span></span></div>
 		
 		<script src="js/three.js"></script>
 		<script src="js/DeviceOrientationControls.js"></script>
@@ -202,6 +202,8 @@
 			var container, camera, scene, renderer, controls;
 			var frslati;
 			var frslong;
+			var ofe = 0;
+			var tin = 0;
 			function init() {
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(showPosition);
@@ -296,6 +298,8 @@
 			function animate( time ) {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -130;
+				camera.position.z = ofe;
+				camera.position.x = tin;
 				controls.update();
 				renderer.render( scene, camera );
 			}
@@ -322,8 +326,10 @@
 			function showPositioner(position) {
 				var calc = frslati - position.coords.latitude;
 				var git = frslong - position.coords.latitude - 100;
-				camera.position.z = calc * 2000000;
-				camera.position.x = document.getElementById("long").innerHTML = git * 20;
+				ofe = calc * 2000000;
+				tin = document.getElementById("long").innerHTML = git * 20;
+				document.getElementById("shoulati").innerHTML = ofe;
+				document.getElementById("shoulong").innerHTML = tin;
 				getLocationer();
 			}
 		</script>
@@ -352,7 +358,7 @@
 			<br><span class="augrtitle" style="font-family: 'Product Sans', Arial, sans-serif; text-shadow: 0px 0px 0px #fff; font-size: 36px;"><strong>Augger</strong> AR</span>
 			<br><br><span style="font-family: 'Product Sans', Arial, sans-serif; text-shadow: 0px 0px 0px #fff;">Welcome Beta Tester</span><br>
 			<span style="font-size: 15px;">version: 6.6 BETA</span><br>
-			<span id="rdmpost" style="font-size: 15px; color: #FBD705; text-shadow: 0px 0px 10px #FBD705;">Now you can feel MORE "kinetic energy"!</span><br>
+			<span id="rdmpost" style="font-size: 15px; color: #FBD705; text-shadow: 0px 0px 10px #FBD705;">Now you can feel and see MORE "kinetic energy"!</span><br>
 		</div>
 		<div id="setup" style="opacity: 0;">
 			<div id="frssetup">
