@@ -245,7 +245,7 @@
 				scene.add(face);
 				face.position.y = -120;
 				face.scale.set(6.4, 4.4, 0.1);
-				face.position.z = -90;
+				face.position.z = -92;
 				face.rotation.z = -1.5708
 				
 				var ambient = new THREE.AmbientLight( 0x444444 );
@@ -303,7 +303,6 @@
 			function animate( time ) {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -130;
-				face.position.z -= 0.1;
 				document.getElementById("shoulati").innerHTML = z;
 				document.getElementById("shoulong").innerHTML = x;
 				controls.update();
