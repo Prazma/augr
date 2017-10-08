@@ -303,8 +303,7 @@
 			function animate( time ) {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -130;
-				camera.position.z -= 0.1;
-				camera.position.x += 0.1;
+				face.position.z -= 0.1;
 				document.getElementById("shoulati").innerHTML = z;
 				document.getElementById("shoulong").innerHTML = x;
 				controls.update();
