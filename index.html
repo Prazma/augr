@@ -255,6 +255,17 @@
 				directionalLight.position.set( 0, 0, 1 ).normalize();
 				scene.add( directionalLight );
 				
+				var objectLoader = new THREE.ObjectLoader(); 
+				objectLoader.load("js/model/renderObject.json", function ( obj ) { 
+					var mat = new THREE.MeshBasicMaterial( { color: 0x252525, wireframe: true } ); 
+					scene.add( obj ); 
+					obj.material = mat; 
+					obj.scale.set(5, 5, 5); 
+					obj.position.z = -100; 
+					obj.position.y = -200; 
+					obj.rotation.x = -1.55; 
+				} )
+				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
 					var mat = new THREE.MeshBasicMaterial( { color: 0xECC6A2, wireframe: false } );
@@ -265,19 +276,6 @@
 					obj.position.y = -199;
 					obj.rotation.x = -1.55;
 				} );
-				var jsonLoader = new THREE.JSONLoader();
-				
-				jsonLoader.load("js/model/renderObject.json", addthree1ToScene);
-				function addthree1ToScene( modil, materials ) {
-					var pill = new THREE.MeshBasicMaterial( { color: 0x42e2f4, wireframe: true} );
-					var three1 = new THREE.Mesh( modil, pill );
-					scene.add( three1 );
-					console.log(three1);
-					three1.scale.set(5, 5, 5);
-					three1.position.z = 0.6;
-					three1.position.y = -200;
-					three1.rotation.x = -1.55;
-				}
 				
 				var helperGeometry = new THREE.BoxBufferGeometry( 400, 400, 400, 10, 10, 10 );
 				var helperMaterial = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
