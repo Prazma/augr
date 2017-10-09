@@ -243,9 +243,9 @@
 				} );
 				var face = new THREE.Mesh( faceGeometry, material1 );
 				scene.add(face);
-				face.position.y = -120;
+				face.position.y = -119;
 				face.scale.set(6.4, 4.4, 0.1);
-				face.position.z = -92;
+				face.position.z = -90;
 				face.rotation.z = -1.5708
 				
 				var ambient = new THREE.AmbientLight( 0x444444 );
@@ -303,6 +303,8 @@
 			function animate( time ) {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -130;
+				camera.position.z = z * 20;
+				camera.position.x = x * 20;
 				document.getElementById("shoulati").innerHTML = z;
 				document.getElementById("shoulong").innerHTML = x;
 				controls.update();
