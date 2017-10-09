@@ -256,16 +256,6 @@
 				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( { color: 0x414E57, wireframe: true } );
-					scene.add( obj );
-					obj.material = mat;
-					obj.scale.set(5, 5, 5);
-					obj.position.z = -100;
-					obj.position.y = -200;
-					obj.rotation.x = -1.55;
-				} );
-				var objectLoader = new THREE.ObjectLoader();
-				objectLoader.load("js/model/renderObject.json", function ( obj ) {
 					var mat = new THREE.MeshBasicMaterial( { color: 0xECC6A2, wireframe: false } );
 					scene.add( obj );
 					obj.material = mat;
