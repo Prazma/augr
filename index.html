@@ -266,7 +266,7 @@
 				} );
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( { color: 0x131F29, wireframe: false } );
+					var mat = new THREE.MeshBasicMaterial( { color: 0xECC6A2, wireframe: false } );
 					scene.add( obj );
 					obj.material = mat;
 					obj.scale.set(4.9, 4.9, 4.9);
@@ -303,8 +303,8 @@
 			function animate( time ) {
 				window.requestAnimationFrame( animate );
 				camera.position.y = -130;
-				camera.position.z = z * 5;
-				camera.position.x = x * 5;
+				camera.position.z = z * 20;
+				camera.position.x = x * 20;
 				document.getElementById("shoulati").innerHTML = z;
 				document.getElementById("shoulong").innerHTML = x;
 				controls.update();
