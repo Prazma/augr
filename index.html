@@ -247,7 +247,7 @@
 				scene.add(face);
 				face.position.y = -119;
 				face.scale.set(6.4, 4.4, 0.1);
-				face.position.z = -94;
+				face.position.z = -92;
 				face.rotation.z = -1.5708
 				
 				var ambient = new THREE.AmbientLight( 0x444444 );
@@ -258,7 +258,7 @@
 				
 				var objectLoader = new THREE.ObjectLoader(); 
 				objectLoader.load("js/model/renderObject.json", function ( obj ) { 
-					var mat = new THREE.MeshBasicMaterial( { color: 0x252525, wireframe: true } ); 
+					var mat = new THREE.MeshBasicMaterial( { color: 0xD9B07B, wireframe: true } ); 
 					scene.add( obj ); 
 					obj.material = mat; 
 					obj.scale.set(5, 5, 5); 
@@ -269,7 +269,7 @@
 				
 				var objectLoader = new THREE.ObjectLoader();
 				objectLoader.load("js/model/renderObject.json", function ( obj ) {
-					var mat = new THREE.MeshBasicMaterial( { color: skin, wireframe: false } );
+					var mat = new THREE.MeshBasicMaterial( { color: 0xEBC9A5, wireframe: false } );
 					scene.add( obj );
 					obj.material = mat;
 					obj.scale.set(4.9, 4.9, 4.9);
